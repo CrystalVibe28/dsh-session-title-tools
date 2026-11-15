@@ -1,0 +1,3 @@
+- insert:
+    - id: session-title-tools
+      name: '@local/dsh-session-title-tools'

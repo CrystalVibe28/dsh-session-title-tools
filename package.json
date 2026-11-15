@@ -1,0 +1,31 @@
+{
+  "name": "@local/dsh-session-title-tools",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Read and rename the current session title through two agent tools",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "session-title",
+    "tool"
+  ],
+  "exports": {
+    ".": "./lib/index.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib/index.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "license": "MIT"
+}
