@@ -1,6 +1,7 @@
 {
   "meta": {
     "title": "Session title tools",
-    "description": "Adds two agent tools to read and rename the current session title."
+    "description": "Adds two agent tools to read and rename the current session title, plus a Settings → Plugins → Session title page that manages DSH's native title generation. The page can follow the session model or pin an available model, previews the native system prompt and its word/CJK length targets, and switches the shipped first-prompt/all-prompts providers by toggling the experimental session-titles bundle, so DSH's Plugins page shows the same change. The tools keep working without the management services.",
+    "detail": "docs/DETAIL.md"
   }
 }
