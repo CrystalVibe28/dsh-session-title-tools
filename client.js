@@ -239,6 +239,7 @@ window.__ModuleLoader__.load({
       const value = snapshot.value ?? {}
 
       const [catalog, setCatalog] = useState({ status: 'idle', groups: [] })
+      const [catalogNonce, setCatalogNonce] = useState(0)
       const [actualMode, setActualMode] = useState(undefined)
       const [busy, setBusy] = useState(false)
       const [notice, setNotice] = useState(null)
@@ -280,7 +281,7 @@ window.__ModuleLoader__.load({
           // The event is optional; the page still works without it.
         }
         return () => { alive = false; off() }
-      }, [ctx])
+      }, [ctx, catalogNonce])
 
       // The authoritative generation mode is the shipped bundle's own switch.
       useEffect(() => {
@@ -476,7 +477,7 @@ window.__ModuleLoader__.load({
                   h('button', {
                     type: 'button',
                     className: 'stt-button',
-                    onClick: () => { setCatalog({ status: 'idle', groups: [] }) },
+                    onClick: () => { setCatalogNonce(nonce => nonce + 1) },
                   }, t('modelCatalogRetry')))
                 : null,
               groups.length === 0 && catalog.status === 'ready'
