@@ -1,6 +1,6 @@
 {
   "name": "@local/dsh-session-title-tools",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "private": true,
   "type": "module",
   "description": "Read and rename the current session title with DSH's native title rules, and manage DSH native session-title generation",
@@ -25,6 +25,12 @@
     "docs",
     "icon.svg"
   ],
+  "engines": {
+    "dsh": ">=0.2.2-rc.3 <0.3.0"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.mjs"
+  },
   "dsh": {
     "bundle": {
       "patch": "./cordis.patch.yml"
