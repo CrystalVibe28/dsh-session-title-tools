@@ -20,13 +20,14 @@ window.__ModuleLoader__.load({
       title: 'Session title generation',
       intro: "Manage DSH's native session-title generation: model, prompt length, and mode. Changes are written to the native settings.",
       modeTitle: 'Generation mode',
-      modeHint: "Switch DSH's built-in title provider. This changes the experimental bundle's enabled state, which DSH's Plugins page reflects too.",
+      modeHint: "Switch DSH's built-in title provider by toggling the shipped experimental bundle. The switch is a real profile change, and DSH's Plugins page shows the same state.",
       modeFirstPrompt: 'First prompt (first-prompt)',
       modeFirstPromptHint: 'Generate a title once, from the first user message of a brand-new session.',
       modeAllPrompts: 'Every prompt (all-prompts)',
       modeAllPromptsHint: 'Every eligible user message may update the title; an adequate generated title is kept verbatim.',
       modeActual: 'Current mode',
       modeUnknown: 'Loading…',
+      modeUnavailable: 'Not available in this profile',
       modelTitle: 'Title model',
       modelHint: "Native follows the session's running model; custom pins an exact route from the available models.",
       modelNative: 'Follow the session model',
@@ -43,7 +44,7 @@ window.__ModuleLoader__.load({
       promptWords: 'Target words (non-CJK)',
       promptCjk: 'Target CJK characters',
       promptPreview: 'Prompt preview',
-      promptPreviewHint: 'This is the system prompt DSH sends to the title model with the current settings.',
+      promptPreviewHint: 'Approximate text of the prompt DSH sends to the title model (as shipped in DSH 0.2.2-rc.3); it can lag behind a DSH update.',
       promptAnchor: 'Extra rules when updating an existing title (all-prompts)',
       promptRestore: 'Restore native defaults',
       promptApply: 'Apply length settings',
@@ -54,6 +55,8 @@ window.__ModuleLoader__.load({
       loading: 'Loading…',
       unavailable: 'This environment does not expose the settings form.',
       modeApplied: 'Generation mode updated.',
+      modeRestartRequired: 'Mode saved; restart DSH to apply the switch.',
+      modeWriteFailed: 'The bundle switch failed.',
       modelApplied: 'Title model updated.',
       promptApplied: 'Prompt length settings updated.',
       restored: 'Restored the native defaults.',
@@ -65,13 +68,14 @@ window.__ModuleLoader__.load({
       title: '会话标题生成',
       intro: '管理 DSH 原生的会话标题生成：模型、提示词长度与生成模式。变更会直接写入原生设置。',
       modeTitle: '生成模式',
-      modeHint: '切换 DSH 内置的标题提供者。这会变更实验性插件的启用状态，DSH 的插件页面也会同步显示。',
+      modeHint: '切换 DSH 内置的标题提供者，做法是切换出厂的实验性插件。这是真正的 profile 变更，DSH 的插件页面会显示相同状态。',
       modeFirstPrompt: '首条提示（first-prompt）',
       modeFirstPromptHint: '仅在全新会话的第一条用户消息时生成一次标题。',
       modeAllPrompts: '每条提示（all-prompts）',
       modeAllPromptsHint: '每条符合条件的用户消息都可能更新标题，既有生成标题若仍贴切会逐字保留。',
       modeActual: '当前模式',
       modeUnknown: '读取中…',
+      modeUnavailable: '此 profile 未提供',
       modelTitle: '标题生成模型',
       modelHint: '原生模式沿用会话运行中的模型；自定义模式则从可用模型清单挑选固定路由。',
       modelNative: '跟随会话模型',
@@ -88,7 +92,7 @@ window.__ModuleLoader__.load({
       promptWords: '非 CJK 目标词数',
       promptCjk: 'CJK 目标字数',
       promptPreview: '提示词预览',
-      promptPreviewHint: '以下是目前设置下 DSH 实际送给标题模型的系统提示词。',
+      promptPreviewHint: '以下是 DSH 送给标题模型的提示词近似内容（依 DSH 0.2.2-rc.3 出厂版本）；DSH 更新后可能略有差异。',
       promptAnchor: '更新既有标题时的附加规则（all-prompts）',
       promptRestore: '复原为原生默认',
       promptApply: '套用长度设置',
@@ -99,6 +103,8 @@ window.__ModuleLoader__.load({
       loading: '加载中…',
       unavailable: '当前设置环境未提供此设置表单。',
       modeApplied: '生成模式已更新。',
+      modeRestartRequired: '模式已保存，重新启动 DSH 后生效。',
+      modeWriteFailed: '切换插件失败。',
       modelApplied: '标题模型已更新。',
       promptApplied: '提示词长度已更新。',
       restored: '已复原为原生默认值。',
@@ -110,13 +116,14 @@ window.__ModuleLoader__.load({
       title: '會話標題生成',
       intro: '管理 DSH 原生的會話標題生成：模型、提示詞長度與生成模式。變更會直接寫入原生設定。',
       modeTitle: '生成模式',
-      modeHint: '切換 DSH 內建的標題提供者。這會變更實驗性外掛的啟用狀態，DSH 的外掛頁面也會同步顯示。',
+      modeHint: '切換 DSH 內建的標題提供者，做法是切換出廠的實驗性外掛。這是真正的 profile 變更，DSH 的外掛頁面會顯示相同狀態。',
       modeFirstPrompt: '首則提示（first-prompt）',
       modeFirstPromptHint: '僅在全新會話的第一則使用者訊息時生成一次標題。',
       modeAllPrompts: '每則提示（all-prompts）',
       modeAllPromptsHint: '每次符合條件的使用者訊息都可能更新標題，既有生成標題若仍貼切會逐字保留。',
       modeActual: '目前模式',
       modeUnknown: '讀取中…',
+      modeUnavailable: '此 profile 未提供',
       modelTitle: '標題生成模型',
       modelHint: '原生模式會沿用會話執行中的模型；自訂模式則從可用模型清單挑選固定路由。',
       modelNative: '跟隨會話模型',
@@ -133,7 +140,7 @@ window.__ModuleLoader__.load({
       promptWords: '非 CJK 目標詞數',
       promptCjk: 'CJK 目標字數',
       promptPreview: '提示詞預覽',
-      promptPreviewHint: '以下為目前設定下 DSH 實際送給標題模型的系統提示詞。',
+      promptPreviewHint: '以下是 DSH 送給標題模型的提示詞近似內容（依 DSH 0.2.2-rc.3 出廠版本）；DSH 更新後可能略有差異。',
       promptAnchor: '更新既有標題時的附加規則（all-prompts）',
       promptRestore: '復原為原生預設',
       promptApply: '套用長度設定',
@@ -144,6 +151,8 @@ window.__ModuleLoader__.load({
       loading: '載入中…',
       unavailable: '目前設定環境未提供此設定表單。',
       modeApplied: '生成模式已更新。',
+      modeRestartRequired: '模式已儲存，重新啟動 DSH 後生效。',
+      modeWriteFailed: '切換外掛失敗。',
       modelApplied: '標題模型已更新。',
       promptApplied: '提示詞長度已更新。',
       restored: '已復原為原生預設值。',
@@ -241,6 +250,7 @@ window.__ModuleLoader__.load({
       const [catalog, setCatalog] = useState({ status: 'idle', groups: [] })
       const [catalogNonce, setCatalogNonce] = useState(0)
       const [actualMode, setActualMode] = useState(undefined)
+      const [modeAvailable, setModeAvailable] = useState(undefined)
       const [busy, setBusy] = useState(false)
       const [notice, setNotice] = useState(null)
       const [words, setWords] = useState(String(value.targetWords ?? DEFAULT_TARGET_WORDS))
@@ -283,28 +293,39 @@ window.__ModuleLoader__.load({
         return () => { alive = false; off() }
       }, [ctx, catalogNonce])
 
-      // The authoritative generation mode is the shipped bundle's own switch.
-      useEffect(() => {
-        let alive = true
-        const load = async () => {
-          try {
-            const response = await ctx.remote.pluginManager.listBundles()
-            if (!alive || !response.ok) return
-            const bundle = response.value.find(candidate => candidate.name === EXPERIMENTAL_BUNDLE)
-            setActualMode(bundle?.enabled === true ? 'all-prompts' : 'first-prompt')
-          } catch {
-            if (alive) setActualMode(undefined)
+      // Read the authoritative generation mode from the shipped bundle's own
+      // switch, which the native Plugins page shows as well.
+      const refreshMode = useCallback(async () => {
+        try {
+          const response = await ctx.remote.pluginManager.listBundles()
+          if (!response.ok) return undefined
+          const bundle = response.value.find(candidate => candidate.name === EXPERIMENTAL_BUNDLE)
+          if (bundle === undefined) {
+            setModeAvailable(false)
+            setActualMode(undefined)
+            return undefined
           }
+          const next = bundle.enabled === true ? 'all-prompts' : 'first-prompt'
+          setModeAvailable(true)
+          setActualMode(next)
+          return next
+        } catch {
+          setModeAvailable(undefined)
+          setActualMode(undefined)
+          return undefined
         }
-        void load()
+      }, [ctx])
+
+      useEffect(() => {
+        void refreshMode()
         let off = () => {}
         try {
-          off = ctx.remote.$on('plugin-manager/changed', () => { void load() })
+          off = ctx.remote.$on('plugin-manager/changed', () => { void refreshMode() })
         } catch {
           // The event is optional; the page still works without it.
         }
-        return () => { alive = false; off() }
-      }, [ctx])
+        return () => { off() }
+      }, [ctx, refreshMode])
 
       useEffect(() => {
         if (notice === null) return
@@ -326,21 +347,34 @@ window.__ModuleLoader__.load({
         }
       }, [form, snapshot.revision, t])
 
+      // Switch the shipped bundle directly over the native plugin-manager
+      // remote, so the page reports the real outcome instead of assuming that
+      // a settings write reached the native provider.
       const selectMode = useCallback(async (mode) => {
-        if (mode === actualMode || modeBusy) return
+        if (mode === actualMode || modeBusy || modeAvailable !== true) return
         setModeBusy(true)
         setNotice({ kind: 'warn', text: t('modeToggling') })
         try {
-          const accepted = await form.set('mode', mode)
-          setNotice(accepted
-            ? { kind: 'ok', text: t('modeApplied') }
-            : { kind: 'error', text: t('writeFailed') })
+          const response = await ctx.remote.pluginManager.setBundleEnabled(EXPERIMENTAL_BUNDLE, mode === 'all-prompts')
+          if (!response.ok) {
+            setNotice({ kind: 'error', text: t('modeWriteFailed') })
+            return
+          }
+          const result = response.value
+          if (result.application === 'failed' || result.application === 'cancelled' || result.application === 'overridden') {
+            setNotice({ kind: 'error', text: result.error?.message ?? t('modeWriteFailed') })
+          } else if (result.application === 'restart-required') {
+            setNotice({ kind: 'warn', text: t('modeRestartRequired') })
+          } else {
+            setNotice({ kind: 'ok', text: t('modeApplied') })
+          }
+          await refreshMode()
         } catch (error) {
           setNotice({ kind: 'error', text: error instanceof Error ? error.message : String(error) })
         } finally {
           setModeBusy(false)
         }
-      }, [actualMode, form, modeBusy, t])
+      }, [actualMode, ctx, modeAvailable, modeBusy, refreshMode, t])
 
       const selectNativeModel = useCallback(() => {
         void mutate([{ op: 'set', path: ['modelKind'], value: 'native' }], t('modelApplied'))
@@ -376,7 +410,7 @@ window.__ModuleLoader__.load({
         ], t('restored'))
       }, [mutate, t])
 
-      const modeForPreview = actualMode ?? (value.mode === 'all-prompts' ? 'all-prompts' : 'first-prompt')
+      const modeForPreview = actualMode ?? 'first-prompt'
       const preview = useMemo(() => basePrompt(Number(words) || DEFAULT_TARGET_WORDS, Number(cjk) || DEFAULT_TARGET_CJK_CHARACTERS), [words, cjk])
 
       if (snapshot.status === 'loading') {
@@ -408,7 +442,7 @@ window.__ModuleLoader__.load({
               type: 'button',
               className: 'stt-mode',
               'aria-pressed': actualMode === 'first-prompt',
-              disabled: modeBusy || busy,
+              disabled: modeBusy || busy || modeAvailable !== true,
               onClick: () => { void selectMode('first-prompt') },
             },
             h('span', { className: 'stt-mode-title' }, t('modeFirstPrompt')),
@@ -417,7 +451,7 @@ window.__ModuleLoader__.load({
               type: 'button',
               className: 'stt-mode',
               'aria-pressed': actualMode === 'all-prompts',
-              disabled: modeBusy || busy,
+              disabled: modeBusy || busy || modeAvailable !== true,
               onClick: () => { void selectMode('all-prompts') },
             },
             h('span', { className: 'stt-mode-title' }, t('modeAllPrompts')),
@@ -426,7 +460,9 @@ window.__ModuleLoader__.load({
           h('p', { className: 'stt-hint' },
             t('modeActual'), '：',
             actualMode === undefined
-              ? h('span', { className: 'stt-unknown' }, t('modeUnknown'))
+              ? modeAvailable === false
+                ? h('span', { className: 'stt-unknown' }, t('modeUnavailable'))
+                : h('span', { className: 'stt-unknown' }, t('modeUnknown'))
               : h('strong', null, actualMode === 'all-prompts' ? t('modeAllPrompts') : t('modeFirstPrompt'))),
         ),
 
