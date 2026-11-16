@@ -3,7 +3,11 @@
 Two agent tools plus a settings page for DeepSeek Harness session titles.
 
 - `session_title_read` reads the current title of the calling session.
-- `session_title_set` renames it and pins the new title.
+- `session_title_set` renames it. Its description carries DSH's native title
+  rules (one line of plain natural-language text, language of the messages,
+  about 5 words or 10 CJK characters), so the model calling the tool generates
+  the title itself; the tool never calls a model. The new title is pinned:
+  automatic title generation stops for later messages.
 - **Settings → Plugins → Session title** manages DSH's native title generation:
   - **Generation mode** switches the shipped `first-prompt` provider (base) and
     the `all-prompts` provider (experimental session-titles bundle). The switch

@@ -1,9 +1,9 @@
 {
   "name": "@local/dsh-session-title-tools",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "private": true,
   "type": "module",
-  "description": "Read and rename the current session title, and manage DSH native session-title generation",
+  "description": "Read and rename the current session title with DSH's native title rules, and manage DSH native session-title generation",
   "keywords": [
     "dsh",
     "dsh-plugin",
