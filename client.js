@@ -1,5 +1,5 @@
 window.__ModuleLoader__.load({
-  id: '@local/dsh-session-title-tools',
+  id: '@crystalvibe28/dsh-session-title-tools',
   factory(require) {
     const React = require('react')
     const h = React.createElement
@@ -628,7 +628,7 @@ window.__ModuleLoader__.load({
             }, SessionTitlePage)),
             ctx.slots.inject('plugins.row.config', () => ctx.slots.register({
               name: 'plugins.row.config',
-              key: '@local/dsh-session-title-tools#session-title-tools',
+              key: '@crystalvibe28/dsh-session-title-tools#session-title-tools',
               locale: NS,
               inject: injectFace,
             }, SessionTitleRowConfig)),

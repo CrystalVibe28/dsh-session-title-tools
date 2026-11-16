@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    name: Test the plugin
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Check the entry points parse
+        run: |
+          node --check lib/index.js
+          node --check client.js
+
+      - name: Run the Host tests
+        run: node --test test/*.test.mjs
+
+      - name: Verify the published file set
+        run: npm pack --dry-run

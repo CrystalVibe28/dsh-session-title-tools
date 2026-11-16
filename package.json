@@ -1,12 +1,12 @@
 {
-  "name": "@local/dsh-session-title-tools",
+  "name": "@crystalvibe28/dsh-session-title-tools",
   "version": "1.3.0",
-  "private": true,
   "type": "module",
   "description": "Read and rename the current session title with DSH's native title rules, and manage DSH native session-title generation",
   "keywords": [
     "dsh",
     "dsh-plugin",
+    "deepseek-harness",
     "session-title",
     "tool"
   ],
@@ -23,7 +23,8 @@
     "cordis.patch.yml",
     "locale/*.json",
     "docs",
-    "icon.svg"
+    "icon.svg",
+    "README.md"
   ],
   "engines": {
     "dsh": ">=0.2.2-rc.3 <0.3.0"
@@ -46,5 +47,16 @@
       ]
     }
   },
-  "license": "MIT"
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CrystalVibe28/dsh-session-title-tools.git"
+  },
+  "homepage": "https://github.com/CrystalVibe28/dsh-session-title-tools#readme",
+  "bugs": {
+    "url": "https://github.com/CrystalVibe28/dsh-session-title-tools/issues"
+  }
 }
